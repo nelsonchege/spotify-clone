@@ -13,8 +13,10 @@ const CountryTracks = () => {
 
   useEffect(() => {
     axios
-      .get('https://geo.ipify.org/check?access_key=dd4f0e37e2b559797859e11f4a959c46')
-      .then((res) => setCountry(res?.data?.country_code))
+      .get('https://geo.ipify.org/api/v2/country?apiKey=at_KWwOu6M8WCB8yPmhP6VkYHrjTdFxp')
+      .then((res) => {
+        setCountry(res?.data?.location?.country);
+      })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, [country]);
